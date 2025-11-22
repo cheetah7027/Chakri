@@ -1,10 +1,10 @@
-# 🎉 JobMatch - Progressive Web App
+# 🎉 Chakri - Progressive Web App
 
 ![PWA Ready](https://img.shields.io/badge/PWA-Ready-brightgreen)
 ![Offline Support](https://img.shields.io/badge/Offline-Enabled-blue)
 ![Installable](https://img.shields.io/badge/Installable-Yes-success)
 
-Your **JobMatch** app has been successfully converted to a **Progressive Web App (PWA)**!
+Your **Chakri** app has been successfully converted to a **Progressive Web App (PWA)**!
 
 ---
 
@@ -81,7 +81,7 @@ http://localhost:5173
 - Click "Install"
 
 **On Android:**
-- Banner appears: "Install JobMatch"
+- Banner appears: "Install Chakri"
 - Tap "Install"
 
 **On iPhone:**
@@ -379,7 +379,7 @@ bubblewrap build
 
 ## 🎉 Success!
 
-Your JobMatch app is now a **fully functional Progressive Web App**!
+Your Chakri app is now a **fully functional Progressive Web App**!
 
 ### **What You Have:**
 - ✅ Installable on any device
@@ -428,4 +428,4 @@ firebase deploy     # Firebase
 
 ---
 
-**Made with ❤️ for JobMatch - Where jobs meet candidates, Tinder-style!**
+**Made with ❤️ for Chakri - Where jobs meet candidates, Tinder-style!**

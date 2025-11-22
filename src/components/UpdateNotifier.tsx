@@ -60,7 +60,7 @@ export default function UpdateNotifier() {
               <div className="flex-1">
                 <h3 className="text-sm mb-1">Update Available</h3>
                 <p className="text-xs text-white/80">
-                  A new version of JobMatch is ready
+                  A new version of Chakri is ready
                 </p>
               </div>
               

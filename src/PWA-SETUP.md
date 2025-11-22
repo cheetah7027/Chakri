@@ -1,8 +1,8 @@
-# JobMatch - Progressive Web App (PWA) Setup Guide
+# Chakri - Progressive Web App (PWA) Setup Guide
 
 ## 🚀 What's Included
 
-Your JobMatch app is now a fully functional **Progressive Web App** with:
+Your Chakri app is now a fully functional **Progressive Web App** with:
 
 ✅ **Offline Support** - Works without internet connection  
 ✅ **Installable** - Add to home screen on Android & iOS  
@@ -18,7 +18,7 @@ Your JobMatch app is now a fully functional **Progressive Web App** with:
 ### **Android (Chrome, Edge, Samsung Internet)**
 
 1. Open the app in your mobile browser
-2. Look for the **"Install JobMatch"** banner (appears after 3 seconds)
+2. Look for the **"Install Chakri"** banner (appears after 3 seconds)
 3. Tap **"Install"** or use browser menu → "Add to Home Screen"
 4. The app icon appears on your home screen
 5. Launch like any native app!
@@ -288,7 +288,7 @@ navigator.serviceWorker.ready.then(registration => {
 
 ## 🎉 You're All Set!
 
-Your JobMatch app is now a fully functional PWA. Users can install it on their devices and use it offline like a native app!
+Your Chakri app is now a fully functional PWA. Users can install it on their devices and use it offline like a native app!
 
 **Next Steps:**
 1. Deploy to a hosting platform with HTTPS

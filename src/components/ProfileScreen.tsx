@@ -159,7 +159,7 @@ export default function ProfileScreen({ onNavigate, userType }: ProfileScreenPro
         </Button>
 
         {/* Version */}
-        <p className="text-center text-[#6E6E6E] text-sm">JobMatch v1.0.0</p>
+        <p className="text-center text-[#6E6E6E] text-sm">Chakri v1.0.0</p>
       </div>
     </div>
   );

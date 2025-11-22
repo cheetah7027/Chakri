@@ -72,7 +72,7 @@ export default function PWAInstallPrompt() {
               </div>
               
               <div className="flex-1 pr-6">
-                <h3 className="text-gray-900 mb-1">Install JobMatch</h3>
+                <h3 className="text-gray-900 mb-1">Install Chakri</h3>
                 <p className="text-sm text-gray-600 mb-4">
                   Install our app for quick access and offline support
                 </p>

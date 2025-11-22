@@ -1,7 +1,7 @@
 
-  # JobMatch Mobile UI Layout
+  # Chakri Mobile UI Layout
 
-  This is a code bundle for JobMatch Mobile UI Layout. The original project is available at https://www.figma.com/design/a3aSjmeqfYFcZtH0QahvJ7/JobMatch-Mobile-UI-Layout.
+  This is a code bundle for Chakri Mobile UI Layout. The original project is available at https://www.figma.com/design/a3aSjmeqfYFcZtH0QahvJ7/JobMatch-Mobile-UI-Layout.
 
   ## Running the code
 

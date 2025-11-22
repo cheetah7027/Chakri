@@ -164,7 +164,7 @@ export default function SwipeScreen({ onNavigate }: SwipeScreenProps) {
     <div className="w-full h-full flex flex-col bg-[#FAFAFA]">
       {/* Top Bar */}
       <div className="p-6 flex items-center justify-between bg-white">
-        <h3 className="text-[#111111]">JobMatch</h3>
+        <h3 className="text-[#111111]">Chakri</h3>
         <button
           onClick={() => onNavigate('profile')}
           className="w-10 h-10 bg-[#2E6CE6] rounded-full flex items-center justify-center"

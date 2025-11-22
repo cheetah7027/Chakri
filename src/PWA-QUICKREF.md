@@ -1,4 +1,4 @@
-# 🚀 JobMatch PWA - Quick Reference Card
+# 🚀 Chakri PWA - Quick Reference Card
 
 ## ⚡ 30-Second Setup
 

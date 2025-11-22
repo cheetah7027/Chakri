@@ -42,9 +42,9 @@ export default function IOSInstallPrompt() {
             </button>
             
             <div className="mb-4">
-              <h3 className="text-gray-900 mb-2">Install JobMatch</h3>
+              <h3 className="text-gray-900 mb-2">Install Chakri</h3>
               <p className="text-sm text-gray-600">
-                Add JobMatch to your home screen for the best experience
+                Add Chakri to your home screen for the best experience
               </p>
             </div>
 

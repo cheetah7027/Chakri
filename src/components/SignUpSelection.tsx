@@ -24,7 +24,7 @@ export default function SignUpSelection({ onNavigate }: SignUpSelectionProps) {
       {/* Content */}
       <div className="flex-1 px-8 flex flex-col justify-center space-y-8">
         <div className="text-center space-y-2">
-          <h1 className="text-[#111111]">Join JobMatch</h1>
+          <h1 className="text-[#111111]">Join Chakri</h1>
           <p className="text-[#6E6E6E]">Choose your account type to get started</p>
         </div>
 

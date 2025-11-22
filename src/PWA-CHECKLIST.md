@@ -1,4 +1,4 @@
-# ✅ JobMatch PWA Deployment Checklist
+# ✅ Chakri PWA Deployment Checklist
 
 Use this checklist before deploying your PWA to production.
 
@@ -32,8 +32,8 @@ ls -la public/icons/
 
 ### **3. Manifest Configuration** 📱
 
-- [x] App name set: "JobMatch - Swipe Your Next Job"
-- [x] Short name set: "JobMatch"
+- [x] App name set: "Chakri - Swipe Your Next Job"
+- [x] Short name set: "Chakri"
 - [x] Description added
 - [x] Theme color: #2E6CE6
 - [x] Background color: #FFFFFF
@@ -142,7 +142,7 @@ ls public/icons/
 # Should see: icon.svg, icon-72x72.png, icon-96x96.png, etc.
 
 # 3. Update cache version in sw.js if needed
-# Change: const CACHE_NAME = 'jobmatch-v1'; to 'jobmatch-v2', etc.
+# Change: const CACHE_NAME = 'chakri-v1'; to 'chakri-v2', etc.
 ```
 
 ### **Step 2: Test Locally**
@@ -211,7 +211,7 @@ git push
 
 ```bash
 # Visit your deployed URL (must be HTTPS!)
-# Example: https://jobmatch.vercel.app
+# Example: https://chakri.vercel.app
 
 # Check:
 # 1. Site loads
@@ -305,7 +305,7 @@ When you deploy updates:
 
 1. Update cache version in `/public/sw.js`:
    ```javascript
-   const CACHE_NAME = 'jobmatch-v2'; // Increment version
+   const CACHE_NAME = 'chakri-v2'; // Increment version
    ```
 
 2. Deploy new version
@@ -460,7 +460,7 @@ Once all checkboxes are ✅:
 4. **Monitor in production**
 5. **Share with users!**
 
-Your JobMatch PWA is ready to compete with native apps! 🎉
+Your Chakri PWA is ready to compete with native apps! 🎉
 
 ---
 

@@ -1,8 +1,8 @@
-# 🚀 JobMatch PWA - Quick Start Guide
+# 🚀 Chakri PWA - Quick Start Guide
 
 ## ✅ Your App is Now a PWA!
 
-Congratulations! Your JobMatch app has been successfully converted to a **Progressive Web App**. Here's what you can do now:
+Congratulations! Your Chakri app has been successfully converted to a **Progressive Web App**. Here's what you can do now:
 
 ---
 
@@ -26,9 +26,9 @@ npm run dev
 3. App opens in its own window!
 
 **On Android:**
-1. A banner appears: "Install JobMatch"
+1. A banner appears: "Install Chakri"
 2. Tap "Install"
-3. Find JobMatch icon on your home screen
+3. Find Chakri icon on your home screen
 4. Launch like any native app!
 
 **On iPhone:**
@@ -48,7 +48,7 @@ npm run dev
 | ✅ Fast Loading | Ready | Cached assets load instantly |
 | ✅ Standalone Mode | Ready | Runs fullscreen like native app |
 | ✅ Auto Updates | Ready | Service worker updates automatically |
-| ✅ App Icon | Ready | Custom JobMatch icon |
+| ✅ App Icon | Ready | Custom Chakri icon |
 | ✅ Splash Screen | Ready | Shows while loading |
 | ✅ Install Prompts | Ready | Smart install suggestions |
 | ✅ Offline Indicator | Ready | Shows connection status |
@@ -155,7 +155,7 @@ firebase deploy
 3. Check these sections:
 
 **✅ Manifest:**
-- Name: "JobMatch - Swipe Your Next Job"
+- Name: "Chakri - Swipe Your Next Job"
 - Theme color: #2E6CE6
 - Icons: 8+ sizes listed
 - Display: standalone
@@ -215,7 +215,7 @@ Progressive Web App Score: 100%
 ### **3. Install Prompt**
 - Visit site (don't install)
 - Wait 3 seconds
-- See banner: "Install JobMatch"
+- See banner: "Install Chakri"
 
 ### **4. App Shortcuts** (Android)
 - Long-press the app icon
@@ -324,7 +324,7 @@ Traditional Web App          →    Progressive Web App
 
 ## 🎉 You're All Set!
 
-Your JobMatch app is now a fully functional Progressive Web App!
+Your Chakri app is now a fully functional Progressive Web App!
 
 **Quick recap:**
 1. ✅ PWA infrastructure: Created

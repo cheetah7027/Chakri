@@ -1,8 +1,8 @@
-# ✅ JobMatch PWA - COMPLETE
+# ✅ Chakri PWA - COMPLETE
 
 ## 🎉 Conversion Complete!
 
-Your **JobMatch** app is now a **fully functional Progressive Web App (PWA)**.
+Your **Chakri** app is now a **fully functional Progressive Web App (PWA)**.
 
 ---
 
@@ -126,7 +126,7 @@ firebase deploy
 **Android:**
 ```
 1. Open deployed URL in Chrome
-2. Wait for "Install JobMatch" banner
+2. Wait for "Install Chakri" banner
 3. Tap "Install"
 4. Launch from home screen
 5. Turn on airplane mode
@@ -477,7 +477,7 @@ You now have a **production-ready Progressive Web App** that:
 
 ### **Ready to Launch**
 
-Your JobMatch PWA is ready for:
+Your Chakri PWA is ready for:
 - 🚀 Production deployment
 - 📱 Real user testing
 - 🌍 Global distribution
@@ -506,7 +506,7 @@ vercel          # or netlify deploy, or firebase deploy
 
 ## ✨ Congratulations!
 
-You've successfully converted **JobMatch** into a **Progressive Web App**!
+You've successfully converted **Chakri** into a **Progressive Web App**!
 
 **Your app now:**
 - 🎯 Competes with native apps
@@ -519,7 +519,7 @@ You've successfully converted **JobMatch** into a **Progressive Web App**!
 
 ---
 
-**Made with ❤️ for JobMatch**
+**Made with ❤️ for Chakri**
 *Where jobs meet candidates, Tinder-style!*
 
 **Version:** PWA v1.0

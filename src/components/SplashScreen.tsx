@@ -41,7 +41,7 @@ export default function SplashScreen() {
           transition={{ delay: 0.3, duration: 0.5 }}
           className="text-white mb-3"
         >
-          JobMatch
+          Chakri
         </motion.h1>
         
         <motion.p
