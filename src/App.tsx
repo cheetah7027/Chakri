@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext, useContext } from 'react';
+import { HashRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import SplashScreen from './components/SplashScreen';
 import WelcomeScreen from './components/WelcomeScreen';
 import LoginScreen from './components/LoginScreen';
@@ -16,56 +17,74 @@ import OfflineIndicator from './components/OfflineIndicator';
 import UpdateNotifier from './components/UpdateNotifier';
 import { registerServiceWorker } from './utils/pwa-utils';
 
+// Create a context for shared state
+const AppContext = createContext<any>(null);
+export const useAppContext = () => useContext(AppContext);
+
+// A component to handle the splash screen logic
+function SplashHandler() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigate('/welcome');
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [navigate]);
+  return <SplashScreen />;
+}
+
+function AppRoutes() {
+  const { selectedJob, matchedJob, userType } = useAppContext();
+
+  return (
+    <Routes>
+      <Route path="/" element={<SplashHandler />} />
+      <Route path="/welcome" element={<WelcomeScreen />} />
+      <Route path="/login" element={<LoginScreen />} />
+      <Route path="/signup" element={<SignUpSelection />} />
+      <Route path="/onboarding" element={<OnboardingFlow userType={userType} />} />
+      <Route path="/swipe" element={<SwipeScreen />} />
+      <Route path="/details" element={<JobDetailsScreen job={selectedJob} />} />
+      <Route path="/match" element={<MatchScreen job={matchedJob} />} />
+      <Route path="/messages" element={<MessagingScreen />} />
+      <Route path="/saved" element={<SavedJobsScreen />} />
+      <Route path="/profile" element={<ProfileScreen userType={userType} />} />
+    </Routes>
+  );
+}
+
 export default function App() {
-  const [currentScreen, setCurrentScreen] = useState<string>('splash');
   const [selectedJob, setSelectedJob] = useState<any>(null);
   const [matchedJob, setMatchedJob] = useState<any>(null);
   const [userType, setUserType] = useState<'seeker' | 'employer'>('seeker');
 
   useEffect(() => {
-    // Register service worker for PWA functionality
     registerServiceWorker();
-    
-    // Auto transition from splash to welcome after 2 seconds
-    if (currentScreen === 'splash') {
-      const timer = setTimeout(() => {
-        setCurrentScreen('welcome');
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [currentScreen]);
+  }, []);
 
-  const handleNavigate = (screen: string, data?: any) => {
-    setCurrentScreen(screen);
-    if (data) {
-      if (data.job) setSelectedJob(data.job);
-      if (data.matchedJob) setMatchedJob(data.matchedJob);
-      if (data.userType) setUserType(data.userType);
-    }
+  const contextValue = {
+    selectedJob,
+    setSelectedJob,
+    matchedJob,
+    setMatchedJob,
+    userType,
+    setUserType,
   };
 
   return (
-    <div className="relative w-full h-screen bg-[#FAFAFA] overflow-hidden flex items-center justify-center">
-      {/* PWA Install Prompts */}
-      <PWAInstallPrompt />
-      <IOSInstallPrompt />
-      <OfflineIndicator />
-      <UpdateNotifier />
-      
-      {/* Mobile Frame - Android Pixel 7 dimensions */}
-      <div className="relative w-full max-w-[360px] h-full max-h-[800px] bg-white shadow-2xl rounded-[24px] overflow-hidden">
-        {currentScreen === 'splash' && <SplashScreen />}
-        {currentScreen === 'welcome' && <WelcomeScreen onNavigate={handleNavigate} />}
-        {currentScreen === 'login' && <LoginScreen onNavigate={handleNavigate} />}
-        {currentScreen === 'signup' && <SignUpSelection onNavigate={handleNavigate} />}
-        {currentScreen === 'onboarding' && <OnboardingFlow onNavigate={handleNavigate} userType={userType} />}
-        {currentScreen === 'swipe' && <SwipeScreen onNavigate={handleNavigate} />}
-        {currentScreen === 'details' && <JobDetailsScreen job={selectedJob} onNavigate={handleNavigate} />}
-        {currentScreen === 'match' && <MatchScreen job={matchedJob} onNavigate={handleNavigate} />}
-        {currentScreen === 'messages' && <MessagingScreen onNavigate={handleNavigate} />}
-        {currentScreen === 'saved' && <SavedJobsScreen onNavigate={handleNavigate} />}
-        {currentScreen === 'profile' && <ProfileScreen onNavigate={handleNavigate} userType={userType} />}
+    <AppContext.Provider value={contextValue}>
+      <div className="relative w-full h-screen bg-[#FAFAFA] overflow-hidden flex items-center justify-center">
+        <PWAInstallPrompt />
+        <IOSInstallPrompt />
+        <OfflineIndicator />
+        <UpdateNotifier />
+        
+        <div className="relative w-full max-w-[360px] h-full max-h-[800px] bg-white shadow-2xl rounded-[24px] overflow-hidden">
+          <Router>
+            <AppRoutes />
+          </Router>
+        </div>
       </div>
-    </div>
+    </AppContext.Provider>
   );
 }

@@ -1,12 +1,13 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowLeft, User, Briefcase } from 'lucide-react';
 import { Button } from './ui/button';
+import { useAppContext } from '../App';
 
-interface SignUpSelectionProps {
-  onNavigate: (screen: string, data?: any) => void;
-}
-
-export default function SignUpSelection({ onNavigate }: SignUpSelectionProps) {
+export default function SignUpSelection() {
+  const navigate = useNavigate();
+  const { setUserType } = useAppContext();
   return (
     <div className="w-full h-full flex flex-col bg-white">
       {/* Header */}
@@ -14,7 +15,7 @@ export default function SignUpSelection({ onNavigate }: SignUpSelectionProps) {
         <Button
           variant="ghost"
           size="icon"
-          onClick={() => onNavigate('welcome')}
+          onClick={() => navigate('/welcome')}
           className="rounded-full"
         >
           <ArrowLeft className="w-6 h-6 text-[#111111]" />
@@ -32,7 +33,7 @@ export default function SignUpSelection({ onNavigate }: SignUpSelectionProps) {
           {/* Job Seeker Card */}
           <motion.button
             whileTap={{ scale: 0.97 }}
-            onClick={() => onNavigate('onboarding', { userType: 'seeker' })}
+            onClick={() => { setUserType('seeker'); navigate('/onboarding'); }}
             className="w-full p-8 bg-gradient-to-br from-[#2E6CE6]/10 to-[#2E6CE6]/5 border-2 border-[#2E6CE6] rounded-3xl hover:shadow-lg transition-shadow"
           >
             <div className="flex items-center gap-4">
@@ -49,7 +50,7 @@ export default function SignUpSelection({ onNavigate }: SignUpSelectionProps) {
           {/* Employer Card */}
           <motion.button
             whileTap={{ scale: 0.97 }}
-            onClick={() => onNavigate('onboarding', { userType: 'employer' })}
+            onClick={() => { setUserType('employer'); navigate('/onboarding'); }}
             className="w-full p-8 bg-gradient-to-br from-[#FF5A5F]/10 to-[#FF5A5F]/5 border-2 border-[#FF5A5F] rounded-3xl hover:shadow-lg transition-shadow"
           >
             <div className="flex items-center gap-4">
@@ -67,7 +68,7 @@ export default function SignUpSelection({ onNavigate }: SignUpSelectionProps) {
         <p className="text-center text-[#6E6E6E]">
           Already have an account?{' '}
           <button
-            onClick={() => onNavigate('login')}
+            onClick={() => navigate('/login')}
             className="text-[#2E6CE6]"
           >
             Sign In

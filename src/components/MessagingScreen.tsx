@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Send, Paperclip, Search } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 
 interface MessagingScreenProps {
-  onNavigate: (screen: string) => void;
 }
 
 const mockChats = [
@@ -48,24 +48,25 @@ const mockMessages = [
   {
     id: 2,
     sender: 'user',
-    text: 'Hello! I\'m very excited about this opportunity.',
+    text: "Hello! I'm very excited about this opportunity.",
     time: '10:32 AM'
   },
   {
     id: 3,
     sender: 'company',
-    text: 'We\'d love to schedule an interview with you. Are you available this week?',
+    text: "We'd love to schedule an interview with you. Are you available this week?",
     time: '10:35 AM'
   },
   {
     id: 4,
     sender: 'user',
-    text: 'Yes, I\'m available Thursday or Friday afternoon.',
+    text: "Yes, I'm available Thursday or Friday afternoon.",
     time: '10:37 AM'
   }
 ];
 
-export default function MessagingScreen({ onNavigate }: MessagingScreenProps) {
+export default function MessagingScreen() {
+  const navigate = useNavigate();
   const [view, setView] = useState<'list' | 'chat'>('list');
   const [selectedChat, setSelectedChat] = useState<any>(null);
   const [message, setMessage] = useState('');
@@ -164,7 +165,7 @@ export default function MessagingScreen({ onNavigate }: MessagingScreenProps) {
       {/* Header */}
       <div className="p-6 space-y-4">
         <div className="flex items-center justify-between">
-          <button onClick={() => onNavigate('swipe')}>
+          <button onClick={() => navigate('/swipe')}>
             <ArrowLeft className="w-6 h-6 text-[#111111]" />
           </button>
           <h2 className="text-[#111111]">Messages</h2>

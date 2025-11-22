@@ -1,11 +1,10 @@
+import React from 'react';
 import { motion } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from './ui/button';
 
-interface WelcomeScreenProps {
-  onNavigate: (screen: string) => void;
-}
-
-export default function WelcomeScreen({ onNavigate }: WelcomeScreenProps) {
+export default function WelcomeScreen() {
+  const navigate = useNavigate();
   return (
     <div className="w-full h-full flex flex-col bg-white">
       {/* Illustration */}
@@ -35,14 +34,14 @@ export default function WelcomeScreen({ onNavigate }: WelcomeScreenProps) {
 
         <div className="space-y-3">
           <Button
-            onClick={() => onNavigate('signup')}
+            onClick={() => navigate('/signup')}
             className="w-full h-14 bg-[#2E6CE6] hover:bg-[#1a4db8] text-white rounded-xl"
           >
             Get Started
           </Button>
           
           <Button
-            onClick={() => onNavigate('login')}
+            onClick={() => navigate('/login')}
             variant="outline"
             className="w-full h-14 border-2 border-[#2E6CE6] text-[#2E6CE6] hover:bg-[#2E6CE6]/10 rounded-xl"
           >

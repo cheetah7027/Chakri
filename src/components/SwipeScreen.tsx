@@ -1,13 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useMotionValue, useTransform, PanInfo } from 'motion/react';
 import { User, Heart, X, Star, MapPin, DollarSign, ChevronUp, MessageSquare, Bookmark, Home } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Button } from './ui/button';
 import SkillBadge from './SkillBadge';
-
-interface SwipeScreenProps {
-  onNavigate: (screen: string, data?: any) => void;
-}
+import { useAppContext } from '../App';
 
 const mockJobs = [
   {
@@ -125,7 +123,9 @@ function SwipeCard({ job, onSwipe, onExpand }: any) {
   );
 }
 
-export default function SwipeScreen({ onNavigate }: SwipeScreenProps) {
+export default function SwipeScreen() {
+  const navigate = useNavigate();
+  const { setMatchedJob, setSelectedJob } = useAppContext();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeTab, setActiveTab] = useState('home');
 
@@ -133,13 +133,12 @@ export default function SwipeScreen({ onNavigate }: SwipeScreenProps) {
 
   const handleSwipe = (direction: 'left' | 'right') => {
     if (direction === 'right') {
-      // Show match screen with 50% probability
       if (Math.random() > 0.5) {
-        onNavigate('match', { matchedJob: currentJob });
+        setMatchedJob(currentJob);
+        navigate('/match');
         return;
       }
     }
-
     if (currentIndex < mockJobs.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
@@ -153,7 +152,6 @@ export default function SwipeScreen({ onNavigate }: SwipeScreenProps) {
     } else if (action === 'reject') {
       handleSwipe('left');
     } else if (action === 'save') {
-      // Save to favorites
       if (currentIndex < mockJobs.length - 1) {
         setCurrentIndex(currentIndex + 1);
       }
@@ -166,7 +164,7 @@ export default function SwipeScreen({ onNavigate }: SwipeScreenProps) {
       <div className="p-6 flex items-center justify-between bg-white">
         <h3 className="text-[#111111]">Chakri</h3>
         <button
-          onClick={() => onNavigate('profile')}
+          onClick={() => navigate('/profile')}
           className="w-10 h-10 bg-[#2E6CE6] rounded-full flex items-center justify-center"
         >
           <User className="w-5 h-5 text-white" />
@@ -180,7 +178,7 @@ export default function SwipeScreen({ onNavigate }: SwipeScreenProps) {
             key={currentJob.id}
             job={currentJob}
             onSwipe={handleSwipe}
-            onExpand={() => onNavigate('details', { job: currentJob })}
+            onExpand={() => { setSelectedJob(currentJob); navigate('/details'); }}
           />
         )}
       </div>
@@ -199,24 +197,24 @@ export default function SwipeScreen({ onNavigate }: SwipeScreenProps) {
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={() => handleAction('save')}
-            className="w-14 h-14 bg-white border-2 border-[#FFCA28] rounded-full flex items-center justify-center shadow-lg hover:bg-[#FFCA28]/10 transition-colors"
+            className="w-20 h-20 bg-white border-2 border-[#FFC107] rounded-full flex items-center justify-center shadow-lg hover:bg-[#FFC107]/10 transition-colors"
           >
-            <Star className="w-6 h-6 text-[#FFCA28]" strokeWidth={2.5} />
+            <Star className="w-10 h-10 text-[#FFC107]" fill="#FFC107" />
           </motion.button>
 
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={() => handleAction('like')}
-            className="w-16 h-16 bg-[#2E6CE6] rounded-full flex items-center justify-center shadow-lg hover:bg-[#1a4db8] transition-colors"
+            className="w-16 h-16 bg-white border-2 border-[#4CAF50] rounded-full flex items-center justify-center shadow-lg hover:bg-[#4CAF50]/10 transition-colors"
           >
-            <Heart className="w-8 h-8 text-white" strokeWidth={2.5} fill="white" />
+            <Heart className="w-8 h-8 text-[#4CAF50]" fill="#4CAF50" />
           </motion.button>
         </div>
 
         {/* Bottom Navigation */}
         <div className="flex items-center justify-around pt-4 border-t border-[#E5E5E5]">
           <button
-            onClick={() => setActiveTab('home')}
+            onClick={() => navigate('/swipe')}
             className={`flex flex-col items-center gap-1 ${activeTab === 'home' ? 'text-[#2E6CE6]' : 'text-[#6E6E6E]'}`}
           >
             <Home className="w-6 h-6" />
@@ -224,7 +222,7 @@ export default function SwipeScreen({ onNavigate }: SwipeScreenProps) {
           </button>
           
           <button
-            onClick={() => onNavigate('saved')}
+            onClick={() => navigate('/saved')}
             className={`flex flex-col items-center gap-1 ${activeTab === 'saved' ? 'text-[#2E6CE6]' : 'text-[#6E6E6E]'}`}
           >
             <Bookmark className="w-6 h-6" />
@@ -232,19 +230,11 @@ export default function SwipeScreen({ onNavigate }: SwipeScreenProps) {
           </button>
           
           <button
-            onClick={() => onNavigate('messages')}
+            onClick={() => navigate('/messages')}
             className={`flex flex-col items-center gap-1 ${activeTab === 'messages' ? 'text-[#2E6CE6]' : 'text-[#6E6E6E]'}`}
           >
             <MessageSquare className="w-6 h-6" />
             <span className="text-xs">Messages</span>
-          </button>
-          
-          <button
-            onClick={() => onNavigate('profile')}
-            className={`flex flex-col items-center gap-1 ${activeTab === 'profile' ? 'text-[#2E6CE6]' : 'text-[#6E6E6E]'}`}
-          >
-            <User className="w-6 h-6" />
-            <span className="text-xs">Profile</span>
           </button>
         </div>
       </div>

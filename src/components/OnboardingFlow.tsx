@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowLeft, Upload, X } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 
 interface OnboardingFlowProps {
-  onNavigate: (screen: string) => void;
   userType: 'seeker' | 'employer';
 }
 
@@ -15,7 +15,8 @@ const skillsList = [
   'Sales', 'Data Analysis', 'UI/UX Design', 'Project Management'
 ];
 
-export default function OnboardingFlow({ onNavigate, userType }: OnboardingFlowProps) {
+export default function OnboardingFlow({ userType }: OnboardingFlowProps) {
+  const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [name, setName] = useState('');
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
@@ -40,7 +41,7 @@ export default function OnboardingFlow({ onNavigate, userType }: OnboardingFlowP
     if (step < totalSteps) {
       setStep(step + 1);
     } else {
-      onNavigate('swipe');
+      navigate('/swipe');
     }
   };
 
@@ -48,7 +49,7 @@ export default function OnboardingFlow({ onNavigate, userType }: OnboardingFlowP
     if (step > 1) {
       setStep(step - 1);
     } else {
-      onNavigate('signup');
+      navigate('/signup');
     }
   };
 

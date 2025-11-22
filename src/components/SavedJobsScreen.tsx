@@ -1,11 +1,10 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, MapPin, DollarSign, Bookmark } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Button } from './ui/button';
 import SkillBadge from './SkillBadge';
-
-interface SavedJobsScreenProps {
-  onNavigate: (screen: string, data?: any) => void;
-}
+import { useAppContext } from '../App';
 
 const savedJobs = [
   {
@@ -50,13 +49,15 @@ const savedJobs = [
   }
 ];
 
-export default function SavedJobsScreen({ onNavigate }: SavedJobsScreenProps) {
+export default function SavedJobsScreen() {
+  const navigate = useNavigate();
+  const { setSelectedJob } = useAppContext();
   return (
     <div className="w-full h-full flex flex-col bg-[#FAFAFA]">
       {/* Header */}
       <div className="p-6 bg-white border-b border-[#E5E5E5]">
         <div className="flex items-center justify-between mb-2">
-          <button onClick={() => onNavigate('swipe')}>
+          <button onClick={() => navigate('/swipe')}>
             <ArrowLeft className="w-6 h-6 text-[#111111]" />
           </button>
           <h2 className="text-[#111111]">Saved Jobs</h2>
@@ -113,7 +114,7 @@ export default function SavedJobsScreen({ onNavigate }: SavedJobsScreenProps) {
             <div className="flex items-center justify-between pt-2 border-t border-[#E5E5E5]">
               <span className="text-[#6E6E6E] text-sm">Saved {job.savedDate}</span>
               <Button
-                onClick={() => onNavigate('details', { job })}
+                onClick={() => { setSelectedJob(job); navigate('/details'); }}
                 className="h-10 px-6 bg-[#2E6CE6] hover:bg-[#1a4db8] text-white rounded-xl"
               >
                 Apply Now

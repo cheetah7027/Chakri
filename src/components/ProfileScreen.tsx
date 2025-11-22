@@ -1,14 +1,14 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Edit, FileText, Settings, LogOut, Shield, Bell, HelpCircle, ChevronRight } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Button } from './ui/button';
 import SkillBadge from './SkillBadge';
+import { useAppContext } from '../App';
 
-interface ProfileScreenProps {
-  onNavigate: (screen: string) => void;
-  userType: 'seeker' | 'employer';
-}
-
-export default function ProfileScreen({ onNavigate, userType }: ProfileScreenProps) {
+export default function ProfileScreen() {
+  const navigate = useNavigate();
+  const { userType } = useAppContext();
   const userSkills = ['React', 'TypeScript', 'Node.js', 'Python', 'AWS', 'Figma'];
 
   return (
@@ -17,7 +17,7 @@ export default function ProfileScreen({ onNavigate, userType }: ProfileScreenPro
       <div className="relative">
         <div className="h-32 bg-gradient-to-br from-[#2E6CE6] to-[#1a4db8]" />
         <button
-          onClick={() => onNavigate('swipe')}
+          onClick={() => navigate('/swipe')}
           className="absolute top-6 left-6 w-10 h-10 bg-white/20 backdrop-blur rounded-full flex items-center justify-center"
         >
           <ArrowLeft className="w-6 h-6 text-white" />
@@ -150,7 +150,7 @@ export default function ProfileScreen({ onNavigate, userType }: ProfileScreenPro
 
         {/* Logout Button */}
         <Button
-          onClick={() => onNavigate('welcome')}
+          onClick={() => navigate('/welcome')}
           variant="outline"
           className="w-full h-12 border-2 border-[#FF5A5F] text-[#FF5A5F] hover:bg-[#FF5A5F]/10 rounded-xl"
         >

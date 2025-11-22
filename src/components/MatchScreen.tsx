@@ -1,14 +1,14 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { MessageSquare, Home, Sparkles } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Button } from './ui/button';
+import { useAppContext } from '../App';
 
-interface MatchScreenProps {
-  job: any;
-  onNavigate: (screen: string) => void;
-}
-
-export default function MatchScreen({ job, onNavigate }: MatchScreenProps) {
+export default function MatchScreen() {
+  const navigate = useNavigate();
+  const { matchedJob: job } = useAppContext();
   if (!job) return null;
 
   return (
@@ -129,7 +129,7 @@ export default function MatchScreen({ job, onNavigate }: MatchScreenProps) {
           className="w-full space-y-3"
         >
           <Button
-            onClick={() => onNavigate('messages')}
+            onClick={() => navigate('/messages')}
             className="w-full h-14 bg-white text-[#2E6CE6] hover:bg-white/90 rounded-xl"
           >
             <MessageSquare className="w-5 h-5 mr-2" />
@@ -137,7 +137,7 @@ export default function MatchScreen({ job, onNavigate }: MatchScreenProps) {
           </Button>
 
           <Button
-            onClick={() => onNavigate('swipe')}
+            onClick={() => navigate('/swipe')}
             variant="outline"
             className="w-full h-14 bg-transparent border-2 border-white text-white hover:bg-white/10 rounded-xl"
           >

@@ -1,15 +1,15 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowLeft, MapPin, DollarSign, Clock, Users, Heart, Send } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Button } from './ui/button';
 import SkillBadge from './SkillBadge';
+import { useAppContext } from '../App';
 
-interface JobDetailsScreenProps {
-  job: any;
-  onNavigate: (screen: string, data?: any) => void;
-}
-
-export default function JobDetailsScreen({ job, onNavigate }: JobDetailsScreenProps) {
+export default function JobDetailsScreen() {
+  const navigate = useNavigate();
+  const { job, setMatchedJob } = useAppContext();
   if (!job) {
     return (
       <div className="w-full h-full flex items-center justify-center">
@@ -21,9 +21,10 @@ export default function JobDetailsScreen({ job, onNavigate }: JobDetailsScreenPr
   const handleLike = () => {
     // Simulate match with 70% probability
     if (Math.random() > 0.3) {
-      onNavigate('match', { matchedJob: job });
+      setMatchedJob(job);
+      navigate('/match');
     } else {
-      onNavigate('swipe');
+      navigate('/swipe');
     }
   };
 
@@ -40,7 +41,7 @@ export default function JobDetailsScreen({ job, onNavigate }: JobDetailsScreenPr
         
         {/* Back Button */}
         <button
-          onClick={() => onNavigate('swipe')}
+          onClick={() => navigate('/swipe')}
           className="absolute top-6 left-6 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center shadow-lg"
         >
           <ArrowLeft className="w-5 h-5 text-[#111111]" />
@@ -136,7 +137,7 @@ export default function JobDetailsScreen({ job, onNavigate }: JobDetailsScreenPr
       <div className="p-6 bg-white border-t border-[#E5E5E5]">
         <div className="flex gap-3">
           <Button
-            onClick={() => onNavigate('swipe')}
+            onClick={() => navigate('/swipe')}
             variant="outline"
             className="flex-1 h-14 border-2 border-[#2E6CE6] text-[#2E6CE6] rounded-xl"
           >
