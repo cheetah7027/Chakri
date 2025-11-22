@@ -5,6 +5,7 @@
 
   export default defineConfig({
     base: '/Chakri/',
+    publicDir: 'src/public',
     plugins: [react()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],

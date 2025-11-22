@@ -19,27 +19,27 @@
     <meta name="theme-color" content="#2E6CE6">
 
     <!-- Manifest -->
-    <link rel="manifest" href="/public/manifest.json">
+    <link rel="manifest" href="/Chakri/manifest.json">
 
     <!-- Icons -->
-    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg">
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-192x192.png">
+    <link rel="icon" type="image/svg+xml" href="/Chakri/icons/icon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/Chakri/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Chakri/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Chakri/icons/icon-192x192.png">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://chakri.app/">
     <meta property="og:title" content="Chakri - Swipe Your Next Job">
     <meta property="og:description" content="Tinder-style job searching app. Swipe right on jobs you love, left on ones you don't.">
-    <meta property="og:image" content="/icons/icon-512x512.png">
+    <meta property="og:image" content="/Chakri/icons/icon-512x512.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://chakri.app/">
     <meta property="twitter:title" content="Chakri - Swipe Your Next Job">
     <meta property="twitter:description" content="Tinder-style job searching app. Swipe right on jobs you love, left on ones you don't.">
-    <meta property="twitter:image" content="/icons/icon-512x512.png">
+    <meta property="twitter:image" content="/Chakri/icons/icon-512x512.png">
 
     <!-- Prevent zoom on input focus (iOS) -->
     <style>
@@ -64,7 +64,7 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/public/sw.js')
+                navigator.serviceWorker.register('/Chakri/sw.js')
                     .then(registration => {
                         console.log('SW registered:', registration);
                     })
